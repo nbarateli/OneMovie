@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cast;
 use Illuminate\Http\Request;
 
 class MoviesController extends Controller
@@ -11,8 +12,10 @@ class MoviesController extends Controller
         return "$genre ara yle";
     }
 
-    public function findById($id)
+    public function findById($id = 1)
     {
-        return "$id ara yle";
+        $cast = new Cast();
+
+        return $cast->find(1)->role(1) . "$id ara yle";
     }
 }

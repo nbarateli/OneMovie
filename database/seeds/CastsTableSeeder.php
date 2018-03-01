@@ -21,7 +21,8 @@ class CastsTableSeeder extends Seeder
         );
         DB::table('movies')->insert([
             'title' => 'Bzikebi',
-            'year' => 1993
+            'year' => 1993,
+            'description' => 'magra asw'
         ]);
         DB::table('roles')->insert(['role_name' => 'Crew', 'movie_id' => 1, 'cast_id' => 1]);
     }

@@ -12,12 +12,6 @@ class Cast extends Model
 
     }
 
-    public function namez()
-    {
-
-        return $this->role(1) . ' vaa';
-    }
-
     public function getMovies()
     {
         return $this->hasMany('App\Role')->get();

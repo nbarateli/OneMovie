@@ -35,6 +35,7 @@ class CreateGenresTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('genre_to_movie');
         Schema::dropIfExists('genres');
     }
 }

@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    public function movies()
+    public function movie()
 
     {
-        return Movie::find($this->movie_id);
+        return $this->belongsTo('App\Movie', 'movie_id');
+
     }
 }

@@ -14,6 +14,5 @@ class Movie extends Model
     public function cast()
     {
         return $this->belongsToMany('App\Cast', 'roles', 'cast_id', 'movie_id');
-
     }
 }

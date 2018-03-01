@@ -25,5 +25,6 @@ class CastsTableSeeder extends Seeder
             'description' => 'magra asw'
         ]);
         DB::table('roles')->insert(['role_name' => 'Crew', 'movie_id' => 1, 'cast_id' => 1]);
+
     }
 }

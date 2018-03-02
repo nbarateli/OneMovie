@@ -8,7 +8,7 @@ class Genre extends Model
 {
     public function movies()
     {
-        return $this->belongsToMany('App\Movie');
+        return $this->belongsToMany('App\Movie', 'genre_to_movie');
     }
 
     public function findByName($name)

@@ -10,9 +10,10 @@ class MoviesController extends Controller
 {
     public function findByGenre($genre_name, $page = 1)
     {
-        $genre = (new Genre())->all();
+        $genre = (new Genre());
 
-        return view('genre', ['genre' => $genre]);
+//        return $genre->findByName($genre_name)->movies;
+        return view('genre', ['movies' => $genre->findByName($genre_name)->movies]);
     }
 
     public function findById($id = 1)

@@ -6,32 +6,6 @@ use Illuminate\Support\Facades\DB;
 
 class CastsTableSeeder extends Seeder
 {
-    private function insertGenres()
-    {
-        $genres = ['Action',
-            'Biography',
-            'Crime',
-            'Family',
-            'Horror',
-            'Romance',
-            'Sports',
-            'War',
-            'Adventure',
-            'Comedy',
-            'Documentary',
-            'Fantasy',
-            'Thriller',
-            'Animation',
-            'Costume',
-            'Drama',
-            'History',
-            'Musical',
-            'Psychological'];
-        foreach ($genres as $genre) {
-            DB::table('genres')->insert(['genre_name' => $genre]);
-        }
-    }
-
     /**
      * Run the database seeds.
      *
@@ -45,9 +19,16 @@ class CastsTableSeeder extends Seeder
                 'middle_name' => '',
                 'birth_date' => Carbon::parse('11-08-1995')]
         );
+
+
+        $this->insertGenres();
         $this->insertMovies();
         DB::table('roles')->insert(['role_name' => 'Crew', 'movie_id' => 1, 'cast_id' => 1]);
-        $this->insertGenres();
+        for ($i = 1; $i < 19; $i++)
+            for ($mo = 1; $mo <= 30; $mo++)
+                DB::table('genre_to_movie')
+                    ->insert(['genre_id' => $i, 'movie_id' => $mo]);
+
     }
 
     private function insertMovies()
@@ -87,13 +68,41 @@ class CastsTableSeeder extends Seeder
             ['title' => 'Peter', 'poster' => 'images/m17.jpg', 'year' => 2015, 'description' => ''],
             ['title' => 'God’s Compass', 'poster' => 'images/m15.jpg', 'year' => 2015, 'description' => '']
         ];
+        $mo = 0;
         foreach ($movies as $movie) {
+            $mo++;
             DB::table('movies')->insert([
                 'title' => $movie['title'],
                 'year' => $movie['year'],
                 'poster' => $movie['poster'],
                 'description' => $movie['description']
             ]);
+        }
+    }
+
+    private function insertGenres()
+    {
+        $genres = ['Action',
+            'Biography',
+            'Crime',
+            'Family',
+            'Horror',
+            'Romance',
+            'Sports',
+            'War',
+            'Adventure',
+            'Comedy',
+            'Documentary',
+            'Fantasy',
+            'Thriller',
+            'Animation',
+            'Costume',
+            'Drama',
+            'History',
+            'Musical',
+            'Psychological'];
+        foreach ($genres as $genre) {
+            DB::table('genres')->insert(['genre_name' => $genre]);
         }
     }
 }

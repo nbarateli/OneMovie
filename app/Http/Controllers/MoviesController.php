@@ -13,7 +13,7 @@ function in_range($val, $start, $end)
 
 class MoviesController extends Controller
 {
-    const MOVIES_PER_PAGE = 14;
+    const MOVIES_PER_PAGE = 24;
 
     public function findByGenre($genre_name, $page = 1)
     {
@@ -22,9 +22,9 @@ class MoviesController extends Controller
         $movies = $genre->movies()->orderBy('id')->get();
 
         $next_page = $prev_page = -1;
-        $this->count_pages($movies, $page, $next_page, $prev_page);
+        $n_pages = $this->count_pages($movies, $page, $next_page, $prev_page);
         $movies_on_page = $this->get_movies_on_page($movies, $page);
-
+        $pages = $this->get_pages($page, $n_pages);
         return view('movies',
             [
                 'movies' => $movies_on_page,
@@ -32,7 +32,8 @@ class MoviesController extends Controller
                 'prev_page' => $prev_page,
                 'next_page' => $next_page,
                 'term' => null,
-                'genre' => $genre->genre_name
+                'genre' => $genre->genre_name,
+                'pages' => $pages
             ]);
     }
 
@@ -52,6 +53,7 @@ class MoviesController extends Controller
 
         $next_page = $page < $n_pages ? $page + 1 : -1;
         $prev_page = $page > 1 ? $page - 1 : 1;
+        return $n_pages;
     }
 
     private function get_movies_on_page($movies, $page)
@@ -64,5 +66,14 @@ class MoviesController extends Controller
             $movies_on_page[$i % self::MOVIES_PER_PAGE] = $movies[$i];
 
         return $movies_on_page;
+    }
+
+    private function get_pages($page, $n_pages)
+    {
+        $pages = [];
+        $start_page = $page - 2 < 1 ? 1 : $page - 2;
+        $end_page = $start_page + 4 > $n_pages ? $n_pages : $start_page + 4;
+        for ($i = $start_page; $i <= $end_page; $i++) array_push($pages, $i);
+        return $pages;
     }
 }

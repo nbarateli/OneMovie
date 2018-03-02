@@ -6,7 +6,11 @@
  * Time: 11:47
  */ ?>
 
+
 @extends ('layouts.app')
+@section('title')
+    <title>{{($term ? $term : $genre) . " - page $page"}}</title>
+@endsection
 @section('content')
     <div class="general-agileits-w3l">
         <div class="w3l-medile-movies-grids">
@@ -81,11 +85,17 @@
                 <div class="blog-pagenat-wthree">
                     <ul>
                         <li><a class="frist" href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        @foreach($pages as $page_n)
+                            <li><a href="{{route('genre',
+                                                        ['genre_name' => $genre,
+                                                         'page' => $page_n]
+                                                         )}}">{{$page_n}}</a>
+                            </li>
+                        @endforeach
+                        {{--<li><a href="#">2</a></li>--}}
+                        {{--<li><a href="#">3</a></li>--}}
+                        {{--<li><a href="#">4</a></li>--}}
+                        {{--<li><a href="#">5</a></li>--}}
                         <li><a class="last" href="#">Next</a></li>
                     </ul>
                 </div>

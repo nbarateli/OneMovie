@@ -191,7 +191,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <ul class="multi-column-dropdown">
                                                 @foreach($genres as $genre)
                                                     <li>
-                                                        <a href="{{route('genre', ['genre_name' => $genre->genre_name])}}">{{$genre->genre_name}}</a>
+                                                        <a href="{{route('genre',
+                                                        ['genre_name' => $genre->genre_name,
+                                                         'page' => 1]
+                                                         )}}">{{$genre->genre_name}}</a>
                                                     </li>
                                                 @endforeach
                                             </ul>

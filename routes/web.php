@@ -14,8 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/genre/{genre}', 'MoviesController@findByGenre')->name('genre');
+Route::get('/genre/{genre}/{page}', 'MoviesController@findByGenre')->name('genre');
 
 Route::get('/movie/{id}', 'MoviesController@findById')->name('movie');
-//Route::get('/', 'MoviesController@findById');
-?>
+

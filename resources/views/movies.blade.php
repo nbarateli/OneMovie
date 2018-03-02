@@ -17,7 +17,7 @@
                 <!--/browse-agile-w3ls -->
                 <div class="browse-agile-w3ls general-w3ls">
                     <div class="tittle-head">
-                        <h4 class="latest-text">Family Movies </h4>
+                        <h4 class="latest-text">{{$term ? $term : $genre}}</h4>
                         <div class="container">
                             <div class="agileits-single-top">
                                 <ol class="breadcrumb">

@@ -19,6 +19,7 @@ for ($i = 0, $k = 0; $i < $columns; $i++){
         <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <title>One Movies an Entertainment Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,6 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all"/>
     <link rel="stylesheet" href="{{ asset('css/contactstyle.css') }}" type="text/css" media="all"/>
     <link rel="stylesheet" href="{{ asset('css/faqstyle.css') }}" type="text/css" media="all"/>
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" media="all"/>
+
     <link href="{{ asset('css/single.css') }}" rel='stylesheet' type='text/css'/>
     <link href="{{ asset('css/medile.css') }}" rel='stylesheet' type='text/css'/>
     <!-- banner-slider -->

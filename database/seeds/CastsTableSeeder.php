@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class CastsTableSeeder extends Seeder
 {
+
     /**
      * Run the database seeds.
      *
@@ -33,40 +34,43 @@ class CastsTableSeeder extends Seeder
 
     private function insertMovies()
     {
+
         $movies = [
-            ['title' => 'Light B/t Oceans', 'poster' => 'images/m7.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'The BFG', 'poster' => 'images/m8.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Central Intelligence', 'poster' => 'images/m9.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Don\'t Think Twice', 'poster' => 'images/m10.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'X-Men', 'poster' => 'images/m11.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Greater', 'poster' => 'images/m12.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Mike-Dave', 'poster' => 'images/c7.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Bad Moms', 'poster' => 'images/c8.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Barber Shop', 'poster' => 'images/c9.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Nine Leaves', 'poster' => 'images/c10.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Billy Lynn’s', 'poster' => 'images/c11.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'War on Everyone', 'poster' => 'images/c12.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Light B/t Oceans', 'poster' => 'images/m7.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'The BFG', 'poster' => 'images/m8.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Central Intelligence', 'poster' => 'images/m9.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Don\'t Think Twice', 'poster' => 'images/m10.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'X-Men', 'poster' => 'images/m11.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Greater', 'poster' => 'images/m12.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Nine Leaves', 'poster' => 'images/c10.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Dirty Grandpa', 'poster' => 'images/c2.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Ride Along', 'poster' => 'images/c3.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'The Boss', 'poster' => 'images/c4.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Keanu', 'poster' => 'images/c5.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Ice Age', 'poster' => 'images/c6.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Citizen Soldier', 'poster' => 'images/m13.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'X-Men', 'poster' => 'images/m11.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Greater', 'poster' => 'images/m12.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Light B/t Oceans', 'poster' => 'images/m7.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'The BFG', 'poster' => 'images/m8.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Central Intelligence', 'poster' => 'images/m9.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Don\'t Think Twice', 'poster' => 'images/m10.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'Peter', 'poster' => 'images/m17.jpg', 'year' => 2015, 'description' => ''],
-            ['title' => 'God’s Compass', 'poster' => 'images/m15.jpg', 'year' => 2015, 'description' => '']
+            ['title' => 'Bad Moms', 'poster' => 'images/c8.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Barber Shop', 'poster' => 'images/c9.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Billy Lynn’s', 'poster' => 'images/c11.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Central Intelligence', 'poster' => 'images/m9.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'The Avengers', 'poster' => 'images/avenge.jpg', 'year' => 2012, 'description' => '', 'trailer' => ''],
+            ['title' => 'Iron Man', 'poster' => 'images/ironman.jpg', 'year' => 2008, 'description' => '', 'trailer' => ''],
+            ['title' => 'Citizen Soldier', 'poster' => 'images/m13.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Dirty Grandpa', 'poster' => 'images/c2.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'The Room', 'poster' => 'images/room.jpg', 'year' => 2003, 'description' => '', 'trailer' => ''],
+            ['title' => 'The Interview', 'poster' => 'images/interview.jpg', 'year' => 2014, 'description' => '', 'trailer' => ''],
+            ['title' => 'Don\'t Think Twice', 'poster' => 'images/m10.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'God’s Compass', 'poster' => 'images/m15.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => '21 Jump Street', 'poster' => 'images/21jump.jpg', 'year' => 2012, 'description' => '', 'trailer' => ''],
+            ['title' => '22 Jump Street', 'poster' => 'images/22jump.jpg', 'year' => 2014, 'description' => '', 'trailer' => ''],
+            ['title' => 'Greater', 'poster' => 'images/m12.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Ice Age', 'poster' => 'images/c6.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Keanu', 'poster' => 'images/c5.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Django Unchained', 'poster' => 'images/django_unchained.jpg', 'year' => 2012, 'description' => '', 'trailer' => ''],
+            ['title' => 'Hateful Eight', 'poster' => 'images/hateful_eight.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Guardians Of The Galaxy',
+                'poster' => 'images/guardians_of_the_galaxy.jpg', 'year' => 2017, 'description' => '', 'trailer' => ''],
+            ['title' => 'Mike-Dave', 'poster' => 'images/c7.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Pulp Fiction', 'poster' => 'images/pulp_fiction.jpg', 'year' => 1994, 'description' => '', 'trailer' => ''],
+            ['title' => 'Nine Leaves', 'poster' => 'images/c10.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Peter', 'poster' => 'images/m17.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Ride Along', 'poster' => 'images/c3.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Straight Outta Compton', 'poster' => 'images/straight_outta_compton.jpg',
+                'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Friday', 'poster' => 'images/friday.jpg', 'year' => 1995, 'description' => '', 'trailer' => ''],
+            ['title' => 'The BFG', 'poster' => 'images/m8.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'The Boss', 'poster' => 'images/c4.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'War on Everyone', 'poster' => 'images/c12.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'X-Men', 'poster' => 'images/m11.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'Logan', 'poster' => 'images/m11.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
+            ['title' => 'X-Men', 'poster' => 'images/m11.jpg', 'year' => 2015, 'description' => '', 'trailer' => ''],
         ];
         $mo = 0;
         foreach ($movies as $movie) {

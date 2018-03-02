@@ -31,9 +31,10 @@
                         <div class="browse-inner">
                             @foreach($movies as $movie)
                                 <div class="col-md-2 w3l-movie-gride-agile">
-                                    <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                    <a href="single.html" class="hvr-shutter-out-horizontal "><img
                                                 src="{{asset($movie->poster)}}"
                                                 title="album-name"
+                                                class="movie-poster"
                                                 alt=" "/>
                                         <div class="w3l-action-icon"><i class="fa fa-play-circle"
                                                                         aria-hidden="true"></i>

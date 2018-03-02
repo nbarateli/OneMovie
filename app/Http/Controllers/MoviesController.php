@@ -3,19 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Cast;
+use App\Genre;
 use Illuminate\Http\Request;
 
 class MoviesController extends Controller
 {
-    public function findByGenre($genre)
+    public function findByGenre($genre_name, $page = 1)
     {
-        return "$genre ara yle";
+        $genre = (new Genre())->all();
+
+        return view('genre', ['genre' => $genre]);
     }
 
     public function findById($id = 1)
     {
-        $cast = new Cast();
 
-        return $cast->find(1)->role(1) . "$id ara yle";
+        return Cast::find(1)->role(1) . " $id ara yle";
     }
 }

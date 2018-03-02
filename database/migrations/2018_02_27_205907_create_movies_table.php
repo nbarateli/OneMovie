@@ -18,6 +18,8 @@ class CreateMoviesTable extends Migration
             $table->string('title');
             $table->integer('year');
             $table->string('description');
+            $table->string('poster');
+            $table->string('trailer')->default('');
             $table->timestamps();
         });
     }

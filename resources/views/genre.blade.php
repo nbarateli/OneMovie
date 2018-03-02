@@ -5,6 +5,7 @@
  * Date: 02.03.2018
  * Time: 11:47
  */ ?>
+
 @extends ('layouts.app')
 @section('content')
     <div class="general-agileits-w3l">
@@ -29,9 +30,10 @@
                     <div class="container">
                         <div class="browse-inner">
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m7.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -63,9 +65,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m8.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m8.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -96,9 +99,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m9.jpg')}}"
+                                            title=" album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -130,9 +134,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m10.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m10.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -163,9 +168,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m11.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -196,9 +202,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m12.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m12.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -234,9 +241,10 @@
                         <!-- /latest-movies1 -->
                         <div class="browse-inner-come-agile-w3">
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c7.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c7.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -267,9 +275,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c8.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c8.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -301,9 +310,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c9.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c9.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -334,9 +344,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c10.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c10.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -368,9 +379,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c11.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c11.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -401,9 +413,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c12.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c12.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -440,9 +453,10 @@
                         <!-- /latest-movies1 -->
                         <div class="browse-inner">
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m7.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m7.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -474,9 +488,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m8.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m8.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -507,9 +522,11 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m9.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal">
+
+                                    <img src="{{asset('images/m9.jpg')}}"
+                                         title="album-name"
+                                         alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -541,9 +558,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m10.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m10.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -574,9 +592,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m11.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m11.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -607,9 +626,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/m12.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/m12.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -646,9 +666,10 @@
                         <!-- //latest-movies1 -->
                         <div class="browse-inner-come-agile-w3">
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c10.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c10.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -679,9 +700,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c2.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c2.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -712,9 +734,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c3.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c3.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -745,9 +768,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c4.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c4.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -778,9 +802,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c5.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c5.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>
@@ -811,9 +836,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal"><img src="images/c6.jpg"
-                                                                                              title="album-name"
-                                                                                              alt=" "/>
+                                <a href="single.html" class="hvr-shutter-out-horizontal"><img
+                                            src="{{asset('images/c6.jpg')}}"
+                                            title="album-name"
+                                            alt=" "/>
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i>
                                     </div>
                                 </a>

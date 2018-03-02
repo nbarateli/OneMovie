@@ -45,11 +45,7 @@ class CastsTableSeeder extends Seeder
                 'middle_name' => '',
                 'birth_date' => Carbon::parse('11-08-1995')]
         );
-        DB::table('movies')->insert([
-            'title' => 'Bzikebi',
-            'year' => 1993,
-            'description' => 'magra asw'
-        ]);
+
         DB::table('roles')->insert(['role_name' => 'Crew', 'movie_id' => 1, 'cast_id' => 1]);
         $this->insertGenres();
     }

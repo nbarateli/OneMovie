@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 Route::get('/genre/{genre}/{page}', 'MoviesController@findByGenre')->name('genre');
 
 Route::get('/movie/{id}', 'MoviesController@findById')->name('movie');

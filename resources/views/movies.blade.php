@@ -35,7 +35,8 @@
                         <div class="browse-inner">
                             @foreach($movies as $movie)
                                 <div class="col-md-2 w3l-movie-gride-agile">
-                                    <a href="single.html" class="hvr-shutter-out-horizontal "><img
+                                    <a href="{{@route('movie',['id'=>$movie->id])}}"
+                                       class="hvr-shutter-out-horizontal "><img
                                                 src="{{asset($movie->poster)}}"
                                                 title="album-name"
                                                 class="movie-poster"
@@ -46,7 +47,8 @@
                                     </a>
                                     <div class="mid-1">
                                         <div class="w3l-movie-text">
-                                            <h6><a href="single.html">{{$movie->title}}</a></h6>
+                                            <h6><a href="{{@route('movie',['id'=>$movie->id])}}">{{$movie->title}}</a>
+                                            </h6>
                                         </div>
                                         <div class="mid-2">
 

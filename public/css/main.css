@@ -2,3 +2,9 @@
   height: 268px;
   object-fit: fill;
 }
+
+.trailer-poster {
+  height: 475px;
+  object-fit: cover;
+
+}

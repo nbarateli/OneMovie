@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cast;
 use App\Genre;
+use App\Movie;
 use Illuminate\Http\Request;
 
 function in_range($val, $start, $end)
@@ -39,8 +40,10 @@ class MoviesController extends Controller
 
     public function findById($id = 1)
     {
+        $movie = Movie::find($id);
 
-        return Cast::find(1)->role(1) . " $id ara yle";
+
+        return view('movie', ['movie' => $movie, $related = []]);
     }
 
     private function count_pages($movies, &$page, &$next_page, &$prev_page)

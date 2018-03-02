@@ -4,7 +4,19 @@ author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<!DOCTYPE html>
+@php
+    $all_genres = (new \App\Genre())->all();
+$columns = intval(count($all_genres) / 8) + 1;
+$genre_columns = [];
+for ($i = 0, $k = 0; $i < $columns; $i++){
+    $genre_columns[$i] =  [];
+    for ($j = 0; $j < 8 && $k < count($all_genres); $j++,$k++){
+        $genre_columns[$i][$j] = $all_genres[$k];
+    }
+}
+@endphp
+
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>One Movies an Entertainment Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
@@ -174,37 +186,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
                             <ul class="dropdown-menu multi-column columns-3">
                                 <li>
-                                    <div class="col-sm-4">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="genres.html">Action</a></li>
-                                            <li><a href="genres.html">Biography</a></li>
-                                            <li><a href="genres.html">Crime</a></li>
-                                            <li><a href="genres.html">Family</a></li>
-                                            <li><a href="horror.html">Horror</a></li>
-                                            <li><a href="genres.html">Romance</a></li>
-                                            <li><a href="genres.html">Sports</a></li>
-                                            <li><a href="genres.html">War</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="genres.html">Adventure</a></li>
-                                            <li><a href="comedy.html">Comedy</a></li>
-                                            <li><a href="genres.html">Documentary</a></li>
-                                            <li><a href="genres.html">Fantasy</a></li>
-                                            <li><a href="genres.html">Thriller</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="genres.html">Animation</a></li>
-                                            <li><a href="genres.html">Costume</a></li>
-                                            <li><a href="genres.html">Drama</a></li>
-                                            <li><a href="genres.html">History</a></li>
-                                            <li><a href="genres.html">Musical</a></li>
-                                            <li><a href="genres.html">Psychological</a></li>
-                                        </ul>
-                                    </div>
+                                    @foreach($genre_columns as $genres)
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                @foreach($genres as $genre)
+                                                    <li>
+                                                        <a href="{{route('genre', ['genre_name' => $genre->genre_name])}}">{{$genre->genre_name}}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endforeach
                                     <div class="clearfix"></div>
                                 </li>
                             </ul>

@@ -7,17 +7,14 @@ use App\Genre;
 use App\Movie;
 use Illuminate\Http\Request;
 
-function in_range($val, $start, $end)
-{
+function in_range($val, $start, $end) {
     return floatval($start) <= floatval($val) && floatval($val) <= floatval($end);
 }
 
-class MoviesController extends Controller
-{
+class MoviesController extends Controller {
     const MOVIES_PER_PAGE = 24;
 
-    public function findByGenre($genre_name, $page = 1)
-    {
+    public function findByGenre($genre_name, $page = 1) {
         $genre = (new Genre())->findByName($genre_name) ? (new Genre())->findByName($genre_name) : Genre::find(1);
 
         $movies = $genre->movies()->orderBy('id')->get();
@@ -38,16 +35,14 @@ class MoviesController extends Controller
             ]);
     }
 
-    public function findById($id = 1)
-    {
+    public function findById($id = 1) {
         $movie = Movie::find($id);
 
 
         return view('movie', ['movie' => $movie, $related = []]);
     }
 
-    private function count_pages($movies, &$page, &$next_page, &$prev_page)
-    {
+    private function count_pages($movies, &$page, &$next_page, &$prev_page) {
         $n_pages = count($movies) / self::MOVIES_PER_PAGE + 1;
         if (count($movies) % self::MOVIES_PER_PAGE == 0 && $n_pages != 0)
             $n_pages--;
@@ -59,8 +54,7 @@ class MoviesController extends Controller
         return $n_pages;
     }
 
-    private function get_movies_on_page($movies, $page)
-    {
+    private function get_movies_on_page($movies, $page) {
         $movies_on_page = [];
         $p = $page - 1;
         $next_page = ($p + 1) * self::MOVIES_PER_PAGE;
@@ -71,8 +65,7 @@ class MoviesController extends Controller
         return $movies_on_page;
     }
 
-    private function get_pages($page, $n_pages)
-    {
+    private function get_pages($page, $n_pages) {
         $pages = [];
         $start_page = $page - 2 < 1 ? 1 : $page - 2;
         $end_page = $start_page + 4 > $n_pages ? $n_pages : $start_page + 4;

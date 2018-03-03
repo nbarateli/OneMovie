@@ -18,3 +18,7 @@ Route::get('/genre/{genre}/{page}', 'MoviesController@findByGenre')->name('genre
 
 Route::get('/movie/{id}', 'MoviesController@findById')->name('movie');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

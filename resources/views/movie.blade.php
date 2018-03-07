@@ -25,6 +25,14 @@
                             </div>
                         </div>
                         <div class="song-grid-right">
+                            <label for="year">Year:</label>
+                            <span id='year'>{{$movie->year}}</span>
+                            <br>
+                            <label for="genre">Genre{{count($movie->genres) != 1 ? 's' : ''}}: </label>
+                            <span id="genre">{{implode(', ',array_column($movie->genres->all(), 'genre_name'))}}</span>
+
+                        </div>
+                        <div class="song-grid-right">
                             <div class="share">
                                 <h5>Share this</h5>
                                 <div class="single-agile-shar-buttons">
@@ -92,9 +100,7 @@
                                 <a href="#">Comments</a>
                                 <div class="agile-info-wthree-box">
                                     <form>
-                                        <input type="text" placeholder="Name" required="">
-                                        <input type="text" placeholder="Email" required="">
-                                        <input type="text" placeholder="Phone" required="">
+
                                         <textarea placeholder="Message" required=""></textarea>
                                         <input type="submit" value="SEND">
                                         <div class="clearfix"></div>

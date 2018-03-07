@@ -4,14 +4,16 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class CastsTableSeeder extends Seeder {
+class CastsTableSeeder extends Seeder
+{
 
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run() {
+    public function run()
+    {
         DB::table('casts')->insert(
             ['first_name' => 'Nicolas',
                 'last_name' => 'Cage',
@@ -23,13 +25,17 @@ class CastsTableSeeder extends Seeder {
         $this->insertGenres();
         $this->insertMovies();
         DB::table('roles')->insert(['role_name' => 'Crew', 'movie_id' => 1, 'cast_id' => 1]);
-        for ($mo = 1; $mo <= 30; $mo++)
+        for ($mo = 1; $mo <= 30; $mo++) {
             DB::table('genre_to_movie')
                 ->insert(['genre_id' => 1, 'movie_id' => $mo]);
+            DB::table('genre_to_movie')
+                ->insert(['genre_id' => 2, 'movie_id' => $mo]);
+        }
 
     }
 
-    private function insertMovies() {
+    private function insertMovies()
+    {
 
         $movies = [
             ['title' => 'Bad Moms', 'poster' => 'images/c8.jpg', 'year' => 2016, 'country_id' => 1, 'description' => '', 'trailer' => 'iKCw-kqo3cs'],
@@ -82,7 +88,8 @@ class CastsTableSeeder extends Seeder {
         }
     }
 
-    private function insertGenres() {
+    private function insertGenres()
+    {
         $genres = ['Action',
             'Biography',
             'Crime',

@@ -11,7 +11,7 @@ class CountriesSeeder extends Seeder {
     public function run() {
         $countries = fopen("resources/countries.txt", 'r');
         for ($line = fgets($countries); $line; $line = fgets($countries)) {
-            DB::table('countries')->insert(['country_name' => $line]);
+            DB::table('countries')->insert(['country_name' => str_replace("\n", '', $line)]);
         }
     }
 }

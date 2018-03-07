@@ -18,6 +18,8 @@ class CreateMoviesTable extends Migration {
             $table->string('description');
             $table->string('poster');
             $table->string('trailer')->default('');
+            $table->integer('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->timestamps();
         });
     }

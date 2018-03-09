@@ -15,7 +15,7 @@ class CreateMoviesTable extends Migration {
             $table->increments('id');
             $table->string('title');
             $table->integer('year');
-            $table->string('description');
+            $table->string('description', 2048);
             $table->string('poster');
             $table->string('trailer')->default('');
             $table->integer('country_id')->unsigned();

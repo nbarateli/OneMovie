@@ -13,7 +13,7 @@ class CreateCommentsTable extends Migration {
     public function up() {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('content');
+            $table->string('content', 4096);
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('movie_id')->unsigned();

@@ -22,3 +22,5 @@ Route::get('/movie/{id}', 'MoviesController@findById')->name('movie');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('login', 'Auth\LoginController@doLogin');
+Route::post('/comments/addComment', 'CommentsController@addComment')->name('add_comment');

@@ -200,7 +200,7 @@ ul#myTab {
   right: 0;
 }
 .w3l-movie-text h6 a {
-    font-size: 1.4em;
+  font-size: 1.2em;
     color: #222;
 }
 .w3l-movie-text {
@@ -257,9 +257,9 @@ i.glyphicon.glyphicon-play-circle {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-	-webkit- border-radius: 50%;
-	-0- border-radius: 50%;
-	-moz- border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
 }
 .ribben p {
     font-size:0.9em;

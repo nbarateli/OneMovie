@@ -90,6 +90,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
+    @hasSection('scripts')
+        @yield('scripts')
+    @endif
     <!-- start-smoth-scrolling -->
 </head>
 
@@ -109,8 +112,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="w3l_sign_in_register">
             <ul>
                 <li><i class="fa fa-phone" aria-hidden="true"></i> (+000) 123 345 653</li>
-                <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+                @if(Auth::check())
+                    @php($user = Auth::user())
+                    <li>Logged in as {{$user->name}}</li>
+                    <li>
+                        <form method="post" action="{{route('logout')}}"><input type="submit" value="Log Out"></form>
+                    </li>
+
+                @else
+                    <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
             </ul>
+            @endif
         </div>
         <div class="clearfix"></div>
     </div>
@@ -134,19 +146,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="form">
                                 <h3>Login to your account</h3>
-                                <form action="#" method="post">
-                                    <input type="text" name="Username" placeholder="Username" required="">
-                                    <input type="password" name="Password" placeholder="Password" required="">
+                                <form action="{{route('login')}}" id='login-form' method="post">
+                                    <input type="text" id="mail" name="email" placeholder="Username" required="">
+                                    <label for="mail" id="ajax_error"></label>
+                                    <input type="password" name="password" placeholder="Password" required="">
                                     <input type="submit" value="Login">
                                 </form>
                             </div>
                             <div class="form">
                                 <h3>Create an account</h3>
-                                <form action="#" method="post">
-                                    <input type="text" name="Username" placeholder="Username" required="">
-                                    <input type="password" name="Password" placeholder="Password" required="">
-                                    <input type="email" name="Email" placeholder="Email Address" required="">
-                                    <input type="text" name="Phone" placeholder="Phone Number" required="">
+                                <form action="{{route('register')}}" id='register-form' method="post">
+                                    <input type="text" name="name" placeholder="Username" required="">
+                                    <input type="password" name="password" placeholder="Password" required="">
+                                    <input type="password" name="password_confirmation" placeholder="Confirm Password"
+                                           required="">
+                                    <input type="email" name="email" placeholder="Email Address" required="">
+                                    <input type="hidden" name="profile_picture" placeholder="Phone Number" required="">
                                     <input type="submit" value="Register">
                                 </form>
                             </div>
@@ -392,6 +407,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     });
 </script>
+<script src="{{asset('js/auth.js')}}"></script>
+
 <!-- //here ends scrolling icon -->
 </body>
 </html>

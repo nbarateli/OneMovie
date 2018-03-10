@@ -6,7 +6,9 @@
  * Time: 00:24
  */ ?>
 @extends('layouts.app')
-
+@section('scripts')
+    <script src="{{asset("js/comments.js")}}"></script>
+@endsection
 @section('content')
     <div class="single-page-agile-main">
         <div class="single-page-agile-info">
@@ -25,11 +27,14 @@
                             </div>
                         </div>
                         <div class="song-grid-right">
+                            <h4 id="summary">{{$movie->description}}</h4>
                             <label for="year">Year:</label>
                             <span id='year'>{{$movie->year}}</span>
                             <br>
                             <label for="genre">Genre{{count($movie->genres) != 1 ? 's' : ''}}: </label>
                             <span id="genre">{{implode(', ',array_column($movie->genres->all(), 'genre_name'))}}</span>
+                            <br>
+
 
                         </div>
                         <div class="song-grid-right">
@@ -98,62 +103,35 @@
                         <div class="all-comments">
                             <div class="all-comments-info">
                                 <a href="#">Comments</a>
-                                <div class="agile-info-wthree-box">
-                                    <form>
-
-                                        <textarea placeholder="Message" required=""></textarea>
-                                        <input type="submit" value="SEND">
-                                        <div class="clearfix"></div>
-                                    </form>
-                                </div>
+                                @if(Auth::check())
+                                    <div class="agile-info-wthree-box">
+                                        <form id="comment-form" action="{{route('add_comment')}}">
+                                            <textarea placeholder="Message" name="content" required=""></textarea>
+                                            <input type="hidden" name="movie_id" value="{{$movie->id}}">
+                                            {{csrf_field()}}
+                                            <input type="submit" value="SEND">
+                                            <div class="clearfix"></div>
+                                        </form>
+                                    </div>
+                                @endif
                             </div>
-                            <div class="media-grids">
-                                <div class="media">
-                                    <h5>TOM BROWN</h5>
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img src="images/user.jpg" title="One movies" alt=" "/>
-                                        </a>
+                            <div class="media-grids" id="comment-grids">
+                                @php($comments = $movie->comments)
+                                @foreach($comments as $comment)
+                                    <div class="media">
+                                        <h5>{{$comment->author->name}}</h5>
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img src="{{asset($comment->author->get_profile_picture())}}"
+                                                     title="One movies" alt=" "/>
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p>{{$comment->content}}</p>
+                                            <span>View all posts by :<a href="#"> Admin </a></span>
+                                        </div>
                                     </div>
-                                    <div class="media-body">
-                                        <p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium
-                                            hendrerit
-                                            maecenas
-                                            imperdiet ipsum id ex pretium hendrerit</p>
-                                        <span>View all posts by :<a href="#"> Admin </a></span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <h5>MARK JOHNSON</h5>
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img src="images/user.jpg" title="One movies" alt=" "/>
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium
-                                            hendrerit
-                                            maecenas
-                                            imperdiet ipsum id ex pretium hendrerit</p>
-                                        <span>View all posts by :<a href="#"> Admin </a></span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <h5>STEVEN SMITH</h5>
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img src="images/user.jpg" title="One movies" alt=" "/>
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium
-                                            hendrerit
-                                            maecenas
-                                            imperdiet ipsum id ex pretium hendrerit</p>
-                                        <span>View all posts by :<a href="#"> Admin </a></span>
-                                    </div>
-                                </div>
-
+                                @endforeach
                             </div>
                         </div>
                     </div>

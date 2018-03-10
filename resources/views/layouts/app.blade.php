@@ -118,6 +118,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <form method="post" action="{{route('logout')}}"><input type="submit" value="Log Out"></form>
                     </li>
+                    <li>
+                        <form action="{{route('admin')}}"><input type="submit" value="Admin Panel"></form>
+                    </li>
 
                 @else
                     <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>

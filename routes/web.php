@@ -24,3 +24,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('login', 'Auth\LoginController@doLogin');
 Route::post('/comments/addComment', 'CommentsController@addComment')->name('add_comment');
+Route::get('/admin/', 'AdminController@index')->name('admin');

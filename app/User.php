@@ -8,7 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable {
     use Notifiable;
 
-    public function get_profile_picture() {
+
+    public function getProfilePicture() {
         return $this->profile_picture ? $this->profile_picture : 'images/user.jpg';
     }
 

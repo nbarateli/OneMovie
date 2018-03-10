@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
-{
+class User extends Authenticatable {
     use Notifiable;
+
+    public function get_profile_picture() {
+        return $this->profile_picture ? $this->profile_picture : 'images/user.jpg';
+    }
 
     /**
      * The attributes that are mass assignable.

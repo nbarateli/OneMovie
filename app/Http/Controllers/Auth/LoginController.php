@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
-{
+class LoginController extends Controller {
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -25,15 +26,33 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '#';
+
+    public function doLogin(Request $request) {
+        $fff = 'vaa';
+
+//        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
+        if ($this->attemptLogin($request)) {
+
+            //Login Successful
+            $response = array('success' => true);
+
+            //return a JSON response
+            return response()->json($response);
+        } else {
+
+            $response = array('success' => false, 'message' => 'Invalid login credentials');
+
+            return response()->json($response);
+        }
+    }
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('guest')->except('logout');
     }
 }

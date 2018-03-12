@@ -8,6 +8,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        KICHEBII
+        <ul>
+            <li><a>Add a movie</a></li>
+        </ul>
     </div>
 @endsection

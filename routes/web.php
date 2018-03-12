@@ -25,3 +25,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('login', 'Auth\LoginController@doLogin');
 Route::post('/comments/addComment', 'CommentsController@addComment')->name('add_comment');
 Route::get('/admin/', 'AdminController@index')->name('admin');
+Route::get('/admin/add_movie', 'AdminController@addMovie')->name('add_movie');
+Route::post('/admin/add_movie', 'AdminController@addMovie')->name('add_movie');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cast;
+use App\Country;
 use App\Genre;
 use App\Movie;
 use Illuminate\Http\Request;
@@ -71,5 +72,14 @@ class MoviesController extends Controller {
         $end_page = $start_page + 4 > $n_pages ? $n_pages : $start_page + 4;
         for ($i = $start_page; $i <= $end_page; $i++) array_push($pages, $i);
         return $pages;
+    }
+
+    public function all_countries() {
+        $countries = [];
+
+        foreach (Country::all() as $country) {
+            array_push($countries, $country->country_name);
+        }
+        return response(json_encode($countries))->header('Content-Type', 'Application/Json');
     }
 }

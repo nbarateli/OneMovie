@@ -44,7 +44,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="{{ asset('css/contactstyle.css') }}" type="text/css" media="all"/>
     <link rel="stylesheet" href="{{ asset('css/faqstyle.css') }}" type="text/css" media="all"/>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" media="all"/>
-
+        <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.theme.css')}}">
+        <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.structure.css')}}">
+        <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.min.css')}}">
     <link href="{{ asset('css/single.css') }}" rel='stylesheet' type='text/css'/>
     <link href="{{ asset('css/medile.css') }}" rel='stylesheet' type='text/css'/>
     <!-- banner-slider -->
@@ -52,12 +54,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //banner-slider -->
     <!-- pop-up -->
     <link href="{{ asset('css/popuo-box.css') }}" rel="stylesheet" type="text/css" media="all"/>
+
     <!-- //pop-up -->
     <!-- font-awesome icons -->
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}"/>
     <!-- //font-awesome icons -->
     <!-- js -->
     <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('vendor/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>
     <!-- //js -->
     <!-- banner-bottom-plugin -->
     <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all">

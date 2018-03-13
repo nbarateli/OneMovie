@@ -9,6 +9,9 @@
 @section('scripts')
     <script src="{{asset("js/comments.js")}}"></script>
 @endsection
+@section('title')
+    <title>{{$movie->title}} - OneMovie</title>
+@endsection
 @section('content')
     <div class="single-page-agile-main">
         <div class="single-page-agile-info">
@@ -37,6 +40,35 @@
 
 
                         </div>
+                        @if(Auth::check() && Auth::user()->user_type =='ADMIN')
+                            <button class="btn btn-danger" data-toggle="modal"
+                                    data-target="#confirm-delete">
+                                Delete
+                            </button>
+                            <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            Are you sure you want to delete "{{$movie->title}}"?
+                                        </div>
+                                        <div class="modal-body">
+                                            This will remove the movie from database permanently.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="{{route('delete_movie', ['id' => $movie->id])}}"
+                                                  method="post">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Cancel
+                                                </button>
+                                                {{csrf_field()}}
+                                                <button type="submit" class="btn btn-danger btn-ok">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>@endif
                         <div class="song-grid-right">
                             <div class="share">
                                 <h5>Share this</h5>
@@ -242,4 +274,6 @@
             $("#video").simplePlayer();
         });
     </script>
+
+
 @endsection

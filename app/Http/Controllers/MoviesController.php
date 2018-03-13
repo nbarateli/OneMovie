@@ -39,7 +39,6 @@ class MoviesController extends Controller {
     public function findById($id = 1) {
         $movie = Movie::find($id);
 
-
         return view('movie', ['movie' => $movie, $related = []]);
     }
 

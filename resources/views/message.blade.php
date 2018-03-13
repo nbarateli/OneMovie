@@ -1,13 +1,10 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Niko
- * Date: 13.03.2018
- * Time: 21:30
- */ ?>
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <h3>{{$message}}</h3>
+        @if(!empty($data['sender_path']))
+            <a href="{{$sender_path}}">Go Back</a>
+        @endif
     </div>
 @endsection

@@ -27,4 +27,5 @@ Route::post('/comments/addComment', 'CommentsController@addComment')->name('add_
 Route::get('/admin/', 'AdminController@index')->name('admin');
 Route::get('/admin/add_movie', 'AdminController@addMovie')->name('add_movie');
 Route::post('/admin/store_movie', 'AdminController@storeMovie')->name('store_movie');
+Route::post('/admin/delete_movie/{id}', 'AdminController@deleteMovie')->name('delete_movie');
 Route::any('/countries', 'MoviesController@all_countries');

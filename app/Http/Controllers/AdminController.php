@@ -29,6 +29,21 @@ class AdminController extends Controller {
         return view('add_movie');
     }
 
+    public function deleteMovie($id) {
+        if (!$this->isAdmin()) return view('message',
+            ['message' => "You don't have the permission to perform this action. Go back to whence you came from.",
+                'sender_path' => route('movie', ['id' => $id])]);
+        $movie = Movie::find($id);
+        if ($movie == null) {
+            return view('message',
+                ['message' => "Couldn't find the movie you were trying to delete"]);
+        }
+        $movie->delete();
+        return view('message',
+            ['message' => "Successfully deleted the movie... Are you happy now? 
+            You movie-slaughtering basterd. Get outta here."]);
+    }
+
     public function storeMovie(Request $request) {
         $rules =
             [

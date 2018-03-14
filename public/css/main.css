@@ -1,10 +1,11 @@
 .movie-poster {
   height: 268px;
-  object-fit: fill;
+  width: 182px;
+  object-fit: scale-down;
 }
 
 .trailer-poster {
-  height: 475px;
+  height: 320px;
   object-fit: cover;
 
 }
@@ -18,4 +19,24 @@
   text-align: center;
   padding: 6px 30px;
   font-weight: bold;
+
+  margin-top: 1em;
+}
+
+.btn-orange:focus {
+  outline: none;
+}
+
+.btn-orange:hover {
+  background: #212121;
+}
+
+.btn-orange {
+  display: inline-block;
+  color: #212121;
+  font-size: 1em;
+}
+
+.btn-orange:first-child {
+  padding-right: 1em;
 }

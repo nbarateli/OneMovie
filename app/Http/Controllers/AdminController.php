@@ -11,25 +11,30 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Mockery\Exception;
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
     const IMAGE_DIR = 'images';
 
-    public function index() {
+    public function index()
+    {
         if (!$this->isAdmin()) return redirect(route('index'));
         return view('admin');
     }
 
-    private function isAdmin() {
+    private function isAdmin()
+    {
         return Auth::check() && Auth::user()->user_type == 'ADMIN';
     }
 
-    public function addMovie() {
+    public function addMovie()
+    {
         if (!$this->isAdmin()) return redirect(route('index'));
 
         return view('add_movie');
     }
 
-    public function deleteMovie($id) {
+    public function deleteMovie($id)
+    {
         if (!$this->isAdmin()) return view('message',
             ['message' => "You don't have the permission to perform this action. Go back to whence you came from.",
                 'sender_path' => route('movie', ['id' => $id])]);
@@ -44,7 +49,8 @@ class AdminController extends Controller {
             You movie-slaughtering basterd. Get outta here."]);
     }
 
-    public function storeMovie(Request $request) {
+    public function storeMovie(Request $request)
+    {
         $rules =
             [
                 'title' => 'required',
@@ -60,7 +66,7 @@ class AdminController extends Controller {
 
             //pass validator errors as errors object for ajax response
 
-            return response()->json(['errors' => $validator->errors()]);
+            return view('add_movie')->withErrors($validator->errors());// response()->json(['errors' => $validator->errors()]);
         } else {
             try {
                 $movie = new Movie();
@@ -81,7 +87,8 @@ class AdminController extends Controller {
         }
     }
 
-    private function moveFile($directory, $name, $image) {
+    private function moveFile($directory, $name, $image)
+    {
         if (!file_exists("$directory/$name")) {
 
             $image->move($directory, $name);
@@ -95,7 +102,8 @@ class AdminController extends Controller {
         return "$directory/$name_without_ext ($i).$ext";
     }
 
-    protected function buildFailedValidationResponse(Request $request, array $errors) {
+    protected function buildFailedValidationResponse(Request $request, array $errors)
+    {
         return new JsonResponse($errors, 422);
     }
 }

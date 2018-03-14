@@ -19,7 +19,11 @@
                 <div class="form-group">
                     <label class='form-check-label' for="title">Title</label>
                     <input type="text" name="title" id="title" class="form-control">
+                    @if ($errors->any())
+                        {{$errors->first('title')}}
+                    @endif
                 </div>
+
                 <div class="form-group">
                     <label class='form-check-label' for="year">Year</label>
                     <input type="number" name="year" id="year" class="form-control" min="1888" max="{{date("Y")}}">

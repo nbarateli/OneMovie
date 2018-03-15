@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('all_movies', ['page' => 1]));
 })->name('index');
+Route::get('/movies/{page}', 'MoviesController@allMovies')->name('all_movies');
 Route::get('/genre/{genre}/{page}', 'MoviesController@findByGenre')->name('genre');
 
 Route::get('/movie/{id}', 'MoviesController@findById')->name('movie');
@@ -29,3 +30,4 @@ Route::get('/admin/add_movie', 'AdminController@addMovie')->name('add_movie');
 Route::post('/admin/store_movie', 'AdminController@storeMovie')->name('store_movie');
 Route::post('/admin/delete_movie/{id}', 'AdminController@deleteMovie')->name('delete_movie');
 Route::any('/countries', 'MoviesController@all_countries');
+Route::any('/genres', 'MoviesController@allGenres');

@@ -79,7 +79,7 @@ class AdminController extends Controller {
             } catch (Exception $exception) {
                 return json_encode(['error' => $exception->getMessage()]);
             }
-            return "success";
+            return json_encode(['success' => true, 'url' => route('movie', ['id' => $movie->id])]);
         }
     }
 

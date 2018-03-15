@@ -88,10 +88,10 @@
                     <ul>
                         <li><a class="frist" href="#">Prev</a></li>
                         @foreach($pages as $page_n)
-                            <li><a href="{{route('genre',
-                                                        ['genre_name' => $genre,
-                                                         'page' => $page_n]
-                                                         )}}">{{$page_n}}</a>
+                            <li><a href="{{
+                            route($genre == null ? 'all_movies' : 'genre',
+                            ['page' => $page_n,'genre_name' => $genre])
+                            }}">{{$page_n}}</a>
                             </li>
                         @endforeach
                         {{--<li><a href="#">2</a></li>--}}

@@ -7,9 +7,13 @@
  */ ?>
 @extends ('layouts.app')
 @section('scripts')
+    <script src="{{asset('vendor/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
 
+    <script src="{{asset('js/tag-input.js')}}"></script>
     <script src="{{asset('js/country_autocomplete.js')}}"></script>
     <script src="{{asset('js/store_movie.js')}}"></script>
+
+
 @endsection
 @section('content')
     <div class="container">
@@ -52,6 +56,12 @@
                 <div class="form-group ">
                     <label class='form-check-label' for="country">Country</label>
                     <input type="text" name="country" id="country" autocomplete="off" class="form-control">
+                </div>
+
+                <div class="form-group ">
+                    <label class='form-check-label' for="genres">Genres</label>
+                    <input type="text" name="genres" id="genres" autocomplete="off"
+                           class="form-control">
                 </div>
                 <input type="submit" class="btn btn-primary">Submit</input>
             </form>

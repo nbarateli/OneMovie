@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var form = $('#store_movie');
     form.submit(function (event) {
-        return;
+        // return;
         console.log(event);
         event.preventDefault();
         var data = new FormData(form[0]);
@@ -26,14 +26,6 @@ $(document).ready(function () {
             }
         });
 
-        // $.ajax({
-        //     type: 'POST',
-        //     url: form.attr('action'),
-        //     data: data,
-        //     success: function (data) {
-        //         console.log(data);
-        //     },
-        //     enctype: 'multipart/form-data'
-        // });
+
     })
 });

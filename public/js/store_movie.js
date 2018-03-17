@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var form = $('#store_movie');
     form.submit(function (event) {
-        // return;
+        return;
         console.log(event);
         event.preventDefault();
         var data = new FormData(form[0]);
@@ -16,8 +16,8 @@ $(document).ready(function () {
             cache: false,
             timeout: 600000,
             success: function (data) {
-
-                console.log(data);
+                data = JSON.parse(data);
+                window.location.replace(data['url']);
 
             },
             error: function (e) {

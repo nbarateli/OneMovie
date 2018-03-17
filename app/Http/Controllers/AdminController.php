@@ -55,32 +55,25 @@ class AdminController extends Controller {
                 'trailer' => 'required',
                 'country' => 'required|exists:countries,country_name'
             ];
-        $validator = Validator::make($request->all(), $rules);
+
+        $this->validate($request, $rules);
+
         $genres = json_decode($request->input('genres'));
-        if ($validator->fails()) {
+        $movie = new Movie();
+        $image = Input::file('poster');
+        $moved = $this->moveFile(self::IMAGE_DIR,
+            $image->getClientOriginalName(), $image);
+        $movie->title = $request->input('title');
+        $movie->year = $request->input('year');
+        $movie->description = $request->input('description');
+        $movie->trailer = $request->input('trailer');
+        $movie->poster = $moved;
+        $movie->country_id = (new Country())->getByName($request->input('country'))->id;
+        $movie->save();
+        $movie->genres()->attach($this->get_ids($genres));
 
-            //pass validator errors as errors object for ajax response
+        return redirect(route('movie', ['id' => $movie->id]));//json_encode(['success' => true, 'url' => route('movie', ['id' => $movie->id])]);
 
-            return view('add_movie')->withErrors($validator->errors());// response()->json(['errors' => $validator->errors()]);
-        } else {
-            try {
-                $movie = new Movie();
-                $image = Input::file('poster');
-                $moved = $this->moveFile(self::IMAGE_DIR,
-                    $image->getClientOriginalName(), $image);
-                $movie->title = $request->input('title');
-                $movie->year = $request->input('year');
-                $movie->description = $request->input('description');
-                $movie->trailer = $request->input('trailer');
-                $movie->poster = $moved;
-                $movie->country_id = (new Country())->getByName($request->input('country'))->id;
-                $movie->save();
-                $movie->genres()->attach($this->get_ids($genres));
-            } catch (Exception $exception) {
-                return json_encode(['error' => $exception->getMessage()]);
-            }
-            return json_encode(['success' => true, 'url' => route('movie', ['id' => $movie->id])]);
-        }
     }
 
     private function moveFile($directory, $name, $image) {

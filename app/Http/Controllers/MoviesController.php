@@ -16,7 +16,8 @@ class MoviesController extends Controller {
     const MOVIES_PER_PAGE = 24;
 
     public function allMovies($page = 1) {
-        return $this->movies_view(Movie::all(), null, 'All movies', $page);
+
+        return $this->movies_view(Movie::orderBy('created_at', 'desc')->get(), null, 'All movies', $page);
     }
 
     public function findByGenre($genre_name, $page = 1) {

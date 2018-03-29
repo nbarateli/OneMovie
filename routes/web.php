@@ -18,7 +18,7 @@ Route::get('/movies/{page}', 'MoviesController@allMovies')->name('all_movies');
 Route::get('/genre/{genre}/{page}', 'MoviesController@findByGenre')->name('genre');
 
 Route::get('/movie/{id}', 'MoviesController@findById')->name('movie');
-
+Route::any('movies/search', 'MoviesController@searchMovies')->name('search_movies');
 
 Auth::routes();
 

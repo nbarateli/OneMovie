@@ -110,8 +110,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <a href="{{route('index')}}"><h1>One<span>Movies</span></h1></a>
         </div>
         <div class="w3_search">
-            <form action="#" method="post">
-                <input type="text" name="Search" placeholder="Search" required="">
+            <form action="{{route('search_movies')}}" method="get">
+                <input type="text" name="title" placeholder="Search" required="">
                 <input type="submit" value="Go">
             </form>
         </div>

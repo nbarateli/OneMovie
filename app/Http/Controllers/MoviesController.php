@@ -17,7 +17,8 @@ class MoviesController extends Controller {
 
     public function allMovies($page = 1) {
 
-        return $this->movies_view(Movie::orderBy('created_at', 'desc')->get(), null, 'All movies', $page);
+        return $this->movies_view(Movie::orderBy('created_at', 'desc')->get(),
+            null, 'All movies', $page, 'all_movies', []);
     }
 
     public function findByGenre($genre_name, $page = 1) {
@@ -25,7 +26,7 @@ class MoviesController extends Controller {
 
         $movies = $genre->movies()->orderBy('id')->get();
 
-        return $this->movies_view($movies, $genre->genre_name, null, $page);
+        return $this->movies_view($movies, $genre->genre_name, null, $page, 'genre', ['genre_name' => $genre_name]);
     }
 
     public function findById($id = 1) {
@@ -57,6 +58,21 @@ class MoviesController extends Controller {
         return $movies_on_page;
     }
 
+    public function searchMovies(Request $request, $page = 1) {
+
+        if ($request->input('title') == null) {
+            return redirect(route('all_movies'));
+        }
+        $movies = Movie::whereRaw('lower(title) like \'%' .
+            strtolower($request->input('title')) . '%\'')->get();
+        if ($movies == null) {
+            return redirect(route('all_movies'));
+        }
+        return $this->movies_view($movies, null,
+            'Looking for "' . $request->input('title') . '"', $page, 'search_movies',
+            $request->all());
+    }
+
     private function get_pages($page, $n_pages) {
         $pages = [];
         $start_page = $page - 2 < 1 ? 1 : $page - 2;
@@ -74,7 +90,7 @@ class MoviesController extends Controller {
         return response(json_encode($countries))->header('Content-Type', 'Application/Json');
     }
 
-    private function movies_view($movies, $genre, $term, $page) {
+    private function movies_view($movies, $genre, $term, $page, $route_name, $data) {
 
         $next_page = $prev_page = -1;
         $n_pages = $this->count_pages($movies, $page, $next_page, $prev_page);
@@ -88,7 +104,9 @@ class MoviesController extends Controller {
                 'next_page' => $next_page,
                 'term' => $term,
                 'genre' => $genre,
-                'pages' => $pages
+                'pages' => $pages,
+                'route_name' => $route_name,
+                'data' => $data
             ]);
     }
 

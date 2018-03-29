@@ -88,19 +88,21 @@
                 <!--//browse-agile-w3ls -->
                 <div class="blog-pagenat-wthree">
                     <ul>
-                        <li><a class="frist" href="#">Prev</a></li>
+
+                        @if(array_search($page - 1, $pages))
+                            @php($data['page'] = $page - 1)
+                            <li><a class="frist" href="{{route($route_name, $data)}}">Prev</a></li>
+                        @endif
                         @foreach($pages as $page_n)
-                            <li><a href="{{
-                            route($genre == null ? 'all_movies' : 'genre',
-                            ['page' => $page_n,'genre_name' => $genre])
+                            @php($data['page'] = $page_n)
+                            <li><a href="{{route($route_name, $data)
                             }}">{{$page_n}}</a>
                             </li>
                         @endforeach
-                        {{--<li><a href="#">2</a></li>--}}
-                        {{--<li><a href="#">3</a></li>--}}
-                        {{--<li><a href="#">4</a></li>--}}
-                        {{--<li><a href="#">5</a></li>--}}
-                        <li><a class="last" href="#">Next</a></li>
+                        @if(array_search($page + 1, $pages))
+                            @php($data['page'] = $page + 1)
+                            <li><a class="last" href="{{route($route_name, $data)}}">Next</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>

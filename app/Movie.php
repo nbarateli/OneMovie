@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class Movie extends Model {
+
     public function genres() {
         return $this->belongsToMany('App\Genre', 'genre_to_movie');
     }
@@ -15,5 +17,22 @@ class Movie extends Model {
 
     public function comments() {
         return $this->hasMany('App\Comment', 'movie_id', 'id')->orderBy('created_at', 'desc');
+    }
+
+    public function rating_of(Movie $movie) {
+        if ($movie == null) return [];
+        $ratings = (new Rating())->where('movie_id', $movie->id)->get();
+
+        return $this->average($ratings, 'rating_value');
+    }
+
+    private function average($array) {
+        $sum = 0.0;
+        foreach ($array as $rating) {
+            $sum += $rating->rating_value;
+        }
+        $count = count($array);
+
+        return $count == 0 ? 0 : $sum / $count;
     }
 }

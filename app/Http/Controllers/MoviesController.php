@@ -118,4 +118,13 @@ class MoviesController extends Controller {
         }
         return response(json_encode($genres))->header('Content-Type', 'Application/Json');
     }
+
+    public function get_ratings_of($movie_id) {
+        $movie = Movie::find($movie_id);
+
+        return response(json_encode(
+            [
+                'rating' => (new Movie())->rating_of($movie)
+            ]))->header('Content-Type', 'Application/Json');
+    }
 }

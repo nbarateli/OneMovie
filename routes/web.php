@@ -31,3 +31,4 @@ Route::post('/admin/store_movie', 'AdminController@storeMovie')->name('store_mov
 Route::post('/admin/delete_movie/{id}', 'AdminController@deleteMovie')->name('delete_movie');
 Route::any('/countries', 'MoviesController@all_countries');
 Route::any('/genres', 'MoviesController@allGenres');
+Route::any('/movies/rating/{id}', 'MoviesController@get_ratings_of')->name('movie_ratings');

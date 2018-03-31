@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return redirect(route('all_movies', ['page' => 1]));
 })->name('index');
-Route::get('/movies/{page}', 'MoviesController@allMovies')->name('all_movies');
+Route::get('/movies/all/{page}', 'MoviesController@allMovies')->name('all_movies');
 Route::get('/genre/{genre}/{page}', 'MoviesController@findByGenre')->name('genre');
 
 Route::get('/movie/{id}', 'MoviesController@findById')->name('movie');

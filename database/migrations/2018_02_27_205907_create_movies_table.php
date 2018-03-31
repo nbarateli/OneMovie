@@ -30,6 +30,7 @@ class CreateMoviesTable extends Migration {
      * @return void
      */
     public function down() {
+        Schema::dropIfExists('ratings');
         Schema::dropIfExists('comments');
         Schema::dropIfExists('genre_to_movie');
         Schema::dropIfExists('movies');

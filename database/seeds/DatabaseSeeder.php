@@ -18,5 +18,12 @@ class DatabaseSeeder extends Seeder {
             'password' => bcrypt('oneadmin'),
             'user_type' => 'ADMIN'
         ]);
+        DB::table('ratings')->insert(
+            [
+                'user_id' => 1,
+                'movie_id' => 1,
+                'rating_value' => 5
+            ]
+        );
     }
 }

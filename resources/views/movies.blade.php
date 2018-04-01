@@ -11,6 +11,9 @@
 @section('title')
     <title>{{($term ? $term : $genre) . " - page $page"}}</title>
 @endsection
+@section('scripts')
+    <script src="{{asset('js/ratings.js')}}"></script>
+@endsection
 @section('content')
     <div class="general-agileits-w3l">
         <div class="w3l-medile-movies-grids">
@@ -25,7 +28,7 @@
                         <div class="container">
                             <div class="agileits-single-top">
                                 <ol class="breadcrumb">
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="{{route('index')}}">Home</a></li>
                                     <li class="active">Genres</li>
                                 </ol>
                             </div>
@@ -55,18 +58,26 @@
                                             <p>{{$movie->year}}</p>
                                             <div class="block-stars">
                                                 <ul class="w3l-ratings">
-                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a>
-                                                    </li>
-                                                    <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
-                                                    </li>
+                                                    @php($rating = $movie->get_rating())
+                                                    @for($r = 1; $r <= $rating; $r++)
+                                                        <li class="rating-star">
+                                                            <a href="#"><i class="fa fa-star"
+                                                                           aria-hidden="true"></i></a>
+                                                        </li>
+                                                    @endfor
+                                                    @if($rating - floor($rating) != 0)
 
+                                                        <li class="rating-star"><a href="#"><i class="fa fa-star-half-o"
+                                                                                               aria-hidden="true"></i></a>
+                                                        </li>
 
+                                                    @endif
+                                                    @for($r = ceil($rating); $r < 5; $r++)
+                                                        <li class="rating-star"><a href="#"><i class="fa fa-star-o"
+                                                                                               aria-hidden="true"></i></a>
+                                                        </li>
+
+                                                    @endfor
                                                 </ul>
                                             </div>
                                             <div class="clearfix"></div>

@@ -19,9 +19,9 @@ class Movie extends Model {
         return $this->hasMany('App\Comment', 'movie_id', 'id')->orderBy('created_at', 'desc');
     }
 
-    public function rating_of(Movie $movie) {
-        if ($movie == null) return [];
-        $ratings = (new Rating())->where('movie_id', $movie->id)->get();
+    public function get_rating() {
+
+        $ratings = (new Rating())->where('movie_id', $this->id)->get();
 
         return $this->average($ratings, 'rating_value');
     }

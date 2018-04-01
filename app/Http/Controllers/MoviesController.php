@@ -124,7 +124,7 @@ class MoviesController extends Controller {
 
         return response(json_encode(
             [
-                'rating' => number_format((new Movie())->rating_of($movie), 2)
+                'rating' => number_format($movie->get_rating(), 2)
             ]))->header('Content-Type', 'Application/Json');
     }
 }

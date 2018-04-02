@@ -21,12 +21,12 @@ function fillForm(comment) {
 function submitComment(event) {
     event.preventDefault();
     var form = $('#comment-form');
-    console.log(form.serialize());
-    $.post(form.attr('action'), form.serialize(), function (data) {
-        console.log(data);
-        var newComment = $('#comment-grids').prepend(fillForm(data['comment']));
 
+    $.post(form.attr('action'), form.serialize(), function (data) {
+
+        var newComment = $('#comment-grids').prepend(fillForm(data['comment']));
         $(newComment.children()).fadeIn('slow');
+        $('#content').val('');
     });
 }
 

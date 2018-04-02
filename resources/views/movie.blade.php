@@ -138,7 +138,8 @@
                                 @if(Auth::check())
                                     <div class="agile-info-wthree-box">
                                         <form id="comment-form" action="{{route('add_comment')}}">
-                                            <textarea placeholder="Message" name="content" required=""></textarea>
+                                            <textarea placeholder="Message" name="content" id='content'
+                                                      required=""></textarea>
                                             <input type="hidden" name="movie_id" value="{{$movie->id}}">
                                             {{csrf_field()}}
                                             <input type="submit" value="SEND">

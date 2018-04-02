@@ -22,6 +22,8 @@ Route::any('movies/search', 'MoviesController@searchMovies')->name('search_movie
 
 Auth::routes();
 
+Route::post('/movies/rate/{id}', 'MoviesController@rate_movie')->name('rate_movie');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('login', 'Auth\LoginController@doLogin');
 Route::post('/comments/addComment', 'CommentsController@addComment')->name('add_comment');

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Cast;
 use App\Country;
 use App\Genre;
 use App\Movie;
+use App\Rating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 function in_range($val, $start, $end) {
     return floatval($start) <= floatval($val) && floatval($val) <= floatval($end);
@@ -126,5 +128,39 @@ class MoviesController extends Controller {
             [
                 'rating' => number_format($movie->get_rating(), 2)
             ]))->header('Content-Type', 'Application/Json');
+    }
+
+    public function rate_movie(Request $request, $id) {
+
+        $result = ['success' => false];
+        $input = $request->all();
+        $input['id'] = $id;
+        $input['auth'] = Auth::check();
+        $validator = Validator::make($input,
+            [
+                'id' => 'required|exists:movies,id',
+                'auth' => 'required|accepted',
+                'rating' => 'required|integer|min:1|max:5'
+            ]
+        );
+
+        if ($validator->passes()) {
+            $result['success'] = true;
+            $rating = $this->get_rating(Auth::id(), $id);
+            $rating->rating_value = $request->input('rating');
+            $rating->save();
+        }
+        $result['error'] = $validator->errors();
+        return response()->json($result);
+    }
+
+    private function get_rating($user_id, $movie_id) {
+        $rating = Rating::whereRaw("user_id = $user_id AND movie_id = $movie_id")->first();
+        if ($rating == null) {
+            $rating = new Rating();
+            $rating->user_id = $user_id;
+            $rating->movie_id = $movie_id;
+        }
+        return $rating;
     }
 }

@@ -102,7 +102,7 @@
                                         </div>
 
                                     </div>
-                                    @if($movie->created_at > date('d.m.Y',strtotime("-3 days")))
+                                    @if(strtotime($movie->created_at)  > strtotime("-3 days"))
                                         <div class="ribben two">
                                             <p>NEW</p>
                                         </div>

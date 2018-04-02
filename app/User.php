@@ -2,14 +2,14 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable {
     use Notifiable;
 
 
-    public function getProfilePicture() {
+    public function get_profile_picture() {
         return $this->profile_picture ? $this->profile_picture : 'images/user.jpg';
     }
 

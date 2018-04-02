@@ -11,7 +11,6 @@
 .trailer-poster {
   height: 320px;
   object-fit: cover;
-
 }
 
 .btn-orange {
@@ -23,7 +22,6 @@
   text-align: center;
   padding: 6px 30px;
   font-weight: bold;
-
   margin-top: 1em;
 }
 
@@ -289,7 +287,6 @@
   height: 7px;
   float: right;
   margin: 8px 2px 0 10px;
-
 }
 
 .tag-sel-ctn .tag-sel-item .tag-close-btn:hover {
@@ -302,4 +299,8 @@
   position: absolute;
   top: -17px;
   right: 0;
+}
+
+.star-blue {
+  color: #3F51B5 !important;
 }

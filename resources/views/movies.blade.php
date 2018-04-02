@@ -62,21 +62,32 @@
                                                     @for($r = 1; $r <= $rating; $r++)
                                                         <li class="rating-star">
                                                             <a href="#"><i class="fa fa-star"
-                                                                           aria-hidden="true"></i></a>
+                                                                           aria-hidden="true"
+                                                                           data-index="{{$r}}"
+                                                                           data-fill="full"></i></a>
                                                         </li>
                                                     @endfor
                                                     @if($rating - floor($rating) != 0)
 
-                                                        <li class="rating-star"><a href="#"><i class="fa fa-star-half-o"
-                                                                                               aria-hidden="true"></i></a>
+                                                        <li class="rating-star">
+                                                            <a href="#">
+                                                                <i class="fa fa-star-half-o"
+                                                                   aria-hidden="true"
+                                                                   data-index="{{ceil($rating)}}"
+                                                                   data-fill="half"></i>
+                                                            </a>
                                                         </li>
 
                                                     @endif
                                                     @for($r = ceil($rating); $r < 5; $r++)
-                                                        <li class="rating-star"><a href="#"><i class="fa fa-star-o"
-                                                                                               aria-hidden="true"></i></a>
+                                                        <li class="rating-star">
+                                                            <a href="#">
+                                                                <i class="fa fa-star-o"
+                                                                   aria-hidden="true"
+                                                                   data-index="{{$r + 1}}"
+                                                                   data-fill="none"></i>
+                                                            </a>
                                                         </li>
-
                                                     @endfor
                                                 </ul>
                                             </div>

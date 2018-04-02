@@ -36,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }, false);
 
         function hideURLbar() {
-            window.scrollTo(0, 1);
+            // window.scrollTo(0, 1);
         } </script>
     <!-- //for-mobile-apps -->
         <link href="{{asset('vendor/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet">
@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         jQuery(document).ready(function ($) {
             $(".scroll").click(function (event) {
                 event.preventDefault();
-                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+
             });
         });
     </script>

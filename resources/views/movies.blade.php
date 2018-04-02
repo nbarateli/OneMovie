@@ -61,16 +61,21 @@
                                                     @php($rating = $movie->get_rating())
                                                     @for($r = 1; $r <= $rating; $r++)
                                                         <li class="rating-star">
-                                                            <a href="#"><i class="fa fa-star"
-                                                                           aria-hidden="true"
-                                                                           data-index="{{$r}}"
-                                                                           data-fill="full"></i></a>
+                                                            <a href="{{route('rate_movie',
+                                                            ['id'=>$movie->id, 'rating'=>$r])
+                                                            }}"><i
+                                                                        class="fa fa-star"
+                                                                        aria-hidden="true"
+                                                                        data-index="{{$r}}"
+                                                                        data-fill="full"></i></a>
                                                         </li>
                                                     @endfor
                                                     @if($rating - floor($rating) != 0)
 
                                                         <li class="rating-star">
-                                                            <a href="#">
+                                                            <a href="{{route('rate_movie',
+                                                            ['id'=>$movie->id, 'rating'=>ceil($rating)])
+                                                            }}">
                                                                 <i class="fa fa-star-half-o"
                                                                    aria-hidden="true"
                                                                    data-index="{{ceil($rating)}}"
@@ -81,7 +86,9 @@
                                                     @endif
                                                     @for($r = ceil($rating); $r < 5; $r++)
                                                         <li class="rating-star">
-                                                            <a href="#">
+                                                            <a href="{{route('rate_movie',
+                                                            ['id'=>$movie->id, 'rating'=>$r + 1])
+                                                            }}">
                                                                 <i class="fa fa-star-o"
                                                                    aria-hidden="true"
                                                                    data-index="{{$r + 1}}"

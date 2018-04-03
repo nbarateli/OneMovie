@@ -48,6 +48,7 @@ function rate(event) {
     event.preventDefault();
     $.post(event.target.parentElement.getAttribute('href'), {rating: event.target.getAttribute('data-index')},
         function (data) {
+            if (!data['success']) return;
             processEvent(event, function (siblings, index, id) {
                 let sibling = $(siblings[index].children[0]);
                 sibling.removeClass('fa-star-o');

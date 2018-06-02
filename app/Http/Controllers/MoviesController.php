@@ -14,8 +14,16 @@ function in_range($val, $start, $end) {
     return floatval($start) <= floatval($val) && floatval($val) <= floatval($end);
 }
 
+function addRoutes($movies) {
+    foreach ($movies as $movie) {
+        $movie->route = route('movie', ['id' => $movie->id]);
+        $movie->rate_route = route('rate_movie', ['id' => $movie->id]);
+    }
+}
+
 class MoviesController extends Controller {
     const MOVIES_PER_PAGE = 24;
+
 
     public function allMovies($page = 1) {
 
@@ -23,18 +31,24 @@ class MoviesController extends Controller {
             null, 'All movies', $page, 'all_movies', []);
     }
 
-    public function findByGenre($genre_name, $page = 1) {
-        $genre = (new Genre())->findByName($genre_name) ? (new Genre())->findByName($genre_name) : Genre::find(1);
+    private function movies_view($movies, $genre, $term, $page, $route_name, $data) {
 
-        $movies = $genre->movies()->orderBy('id')->get();
-
-        return $this->movies_view($movies, $genre->genre_name, null, $page, 'genre', ['genre_name' => $genre_name]);
-    }
-
-    public function findById($id = 1) {
-        $movie = Movie::find($id);
-
-        return view('movie', ['movie' => $movie, $related = []]);
+        $next_page = $prev_page = -1;
+        $n_pages = $this->count_pages($movies, $page, $next_page, $prev_page);
+        $movies_on_page = $this->get_movies_on_page($movies, $page);
+        $pages = $this->get_pages($page, $n_pages);
+        return view('movies',
+            [
+                'movies' => $movies_on_page,
+                'page' => $page,
+                'prev_page' => $prev_page,
+                'next_page' => $next_page,
+                'term' => $term,
+                'genre' => $genre,
+                'pages' => $pages,
+                'route_name' => $route_name,
+                'data' => $data
+            ]);
     }
 
     private function count_pages($movies, &$page, &$next_page, &$prev_page) {
@@ -60,27 +74,44 @@ class MoviesController extends Controller {
         return $movies_on_page;
     }
 
-    public function searchMovies(Request $request, $page = 1) {
-
-        if ($request->input('title') == null) {
-            return redirect(route('all_movies'));
-        }
-        $movies = Movie::whereRaw('lower(title) like \'%' .
-            strtolower($request->input('title')) . '%\'')->get();
-        if ($movies == null) {
-            return redirect(route('all_movies'));
-        }
-        return $this->movies_view($movies, null,
-            'Looking for "' . $request->input('title') . '"', $page, 'search_movies',
-            $request->all());
-    }
-
     private function get_pages($page, $n_pages) {
         $pages = [];
         $start_page = $page - 2 < 1 ? 1 : $page - 2;
         $end_page = $start_page + 4 > $n_pages ? $n_pages : $start_page + 4;
         for ($i = $start_page; $i <= $end_page; $i++) array_push($pages, $i);
         return $pages;
+    }
+
+    public function findByGenre($genre_name, $page = 1) {
+        $genre = (new Genre())->findByName($genre_name) ? (new Genre())->findByName($genre_name) : Genre::find(1);
+
+        $movies = $genre->movies()->orderBy('id')->get();
+
+        return $this->movies_view($movies, $genre->genre_name, null, $page, 'genre', ['genre_name' => $genre_name]);
+    }
+
+    public function findById($id = 1) {
+        $movie = Movie::find($id);
+
+        return view('movie', ['movie' => $movie, $related = []]);
+    }
+
+    public function searchMovies(Request $request, $page = 1) {
+
+        if ($request->input('title') == null) {
+            return $request->input('json_response') ? json_encode([]) : redirect(route('all_movies'));
+        }
+        $movies = Movie::whereRaw('lower(title) like \'%' .
+            strtolower($request->input('title')) . '%\'')->get();
+        if (count($movies) == 0) {
+            return $request->input('json_response') ? json_encode([]) : redirect(route('all_movies'));
+        }
+        if ($request->input('raw_routes') != null && $request->input('raw_routes'))
+            addRoutes($movies);
+        if ($request->input('json_response')) return json_encode($movies);
+        return $this->movies_view($movies, null,
+            'Looking for "' . $request->input('title') . '"', $page, 'search_movies',
+            $request->all());
     }
 
     public function all_countries() {
@@ -90,26 +121,6 @@ class MoviesController extends Controller {
             array_push($countries, $country->country_name);
         }
         return response(json_encode($countries))->header('Content-Type', 'Application/Json');
-    }
-
-    private function movies_view($movies, $genre, $term, $page, $route_name, $data) {
-
-        $next_page = $prev_page = -1;
-        $n_pages = $this->count_pages($movies, $page, $next_page, $prev_page);
-        $movies_on_page = $this->get_movies_on_page($movies, $page);
-        $pages = $this->get_pages($page, $n_pages);
-        return view('movies',
-            [
-                'movies' => $movies_on_page,
-                'page' => $page,
-                'prev_page' => $prev_page,
-                'next_page' => $next_page,
-                'term' => $term,
-                'genre' => $genre,
-                'pages' => $pages,
-                'route_name' => $route_name,
-                'data' => $data
-            ]);
     }
 
     public function allGenres() {
@@ -163,4 +174,6 @@ class MoviesController extends Controller {
         }
         return $rating;
     }
+
+
 }

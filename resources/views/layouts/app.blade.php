@@ -96,9 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
-    @hasSection('scripts')
-        @yield('scripts')
-    @endif
+
     <!-- start-smoth-scrolling -->
 </head>
 
@@ -110,9 +108,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <a href="{{route('index')}}"><h1>One<span>Movies</span></h1></a>
         </div>
         <div class="w3_search">
-            <form action="{{route('search_movies')}}" method="get">
-                <input type="text" name="title" placeholder="Search" required="">
+            <form id="search" action="{{route('search_movies')}}" method="get">
+                <input autocomplete="off" autocomplete="false" type="text" name="title" placeholder="Search"
+                       required="">
                 <input type="submit" value="Go">
+                @hasSection('search_parameters')
+                    @yield('search_parameters')
+                @endif
             </form>
         </div>
         <div class="w3l_sign_in_register">
@@ -420,4 +422,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- //here ends scrolling icon -->
 </body>
+@hasSection('scripts')
+    @yield('scripts')
+@endif
 </html>

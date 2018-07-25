@@ -423,6 +423,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //here ends scrolling icon -->
 </body>
 @hasSection('scripts')
+    <script src="{{asset('/vendor/socket.io.js')}}"></script>
     @yield('scripts')
 @endif
 </html>

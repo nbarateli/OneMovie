@@ -396,14 +396,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('js/auth.js')}}"></script>
 <script type="x-template/mustache" id='search-item'>
     <li class="movie-entry">
-        <img src="{{image}}">
-        <a href="{{url}}">{{title}}</a>
+        {{--<img src="{{image}}">--}}
+        {{--<a href="{{url}}">{{title}}</a>--}}
     </li>
 </script>
 <!-- //here ends scrolling icon -->
 </body>
 @hasSection('scripts')
     <script src="{{asset('/vendor/socket.io.js')}}"></script>
+    <script src="{{asset('js/bootstrap.js',true)}}"></script>
     <script src="{{asset('/vendor/lodash.js')}}"></script>
     <script src="{{asset('js/search.js')}}"></script>
     @yield('scripts')

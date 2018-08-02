@@ -15,14 +15,13 @@ function displayMovies(data) {
 }
 
 function search(e) {
-    // e.preventDefault();
-    // console.log($(this).serialize());
-    // ajax(SEARCH_ROUTE + '?' + $(this).serialize(), displayMovies);
+    console.log(e)
+    $(e.target).autocomplete({source: ['ნიკ', 'მაშინ', 'მოტყან']})
 }
 
 function ready() {
-    let form = document.getElementById('search')
-    form.addEventListener('submit', search, true);
+    let form = document.getElementById('search');
+    form.addEventListener('input', _.debounce(search, 300), true);
 
 }
 

@@ -46,6 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="{{ asset('css/contactstyle.css') }}" type="text/css" media="all"/>
     <link rel="stylesheet" href="{{ asset('css/faqstyle.css') }}" type="text/css" media="all"/>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" media="all"/>
+        <link rel="stylesheet" href="{{ asset('css/search.css') }}" type="text/css" media="all"/>
         <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.theme.css')}}">
         <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.structure.css')}}">
         <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.min.css')}}">
@@ -115,6 +116,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 @hasSection('search_parameters')
                     @yield('search_parameters')
                 @endif
+                <ul id="search-results">
+
+                </ul>
             </form>
         </div>
         <div class="w3l_sign_in_register">
@@ -305,35 +309,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     @yield('most_popular')
 @endif
 <!-- pop-up-box -->
-<script src=" {{asset('js/jquery.magnific-popup.js') }}" type="text/javascript"></script>
-<!--//pop-up-box -->
-<div id="small-dialog" class="mfp-hide">
-    <iframe src="https://player.vimeo.com/video/164819130?title=0&byline=0"></iframe>
-</div>
-<div id="small-dialog1" class="mfp-hide">
-    <iframe src="https://player.vimeo.com/video/148284736"></iframe>
-</div>
-<div id="small-dialog2" class="mfp-hide">
-    <iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
-</div>
-<script>
-    $(document).ready(function () {
-        $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
-            type: 'inline',
-            fixedContentPos: false,
-            fixedBgPos: true,
-            overflowY: 'auto',
-            closeBtnInside: true,
-            preloader: false,
-            midClick: true,
-            removalDelay: 300,
-            mainClass: 'my-mfp-zoom-in'
-        });
-
-    });
-</script>
-<!-- //Latest-tv-series -->
-<!-- footer -->
 <div class="footer">
     <div class="container">
         <div class="w3ls_footer_grid">
@@ -419,7 +394,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
 </script>
 <script src="{{asset('js/auth.js')}}"></script>
-
+<script type="x-template/mustache" id='search-item'>
+    <li class="movie-entry">
+        <img src="{{image}}">
+        <a href="{{url}}">{{title}}</a>
+    </li>
+</script>
 <!-- //here ends scrolling icon -->
 </body>
 @hasSection('scripts')

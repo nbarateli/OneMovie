@@ -18,12 +18,18 @@ function addRoutes($movies) {
     foreach ($movies as $movie) {
         $movie->route = route('movie', ['id' => $movie->id]);
         $movie->rate_route = route('rate_movie', ['id' => $movie->id]);
+
     }
 }
 
 class MoviesController extends Controller {
     const MOVIES_PER_PAGE = 24;
 
+    public function getAllMovies() {
+        $movies = Movie::orderBy('created_at', 'desc')->get();
+        foreach ($movies as $movie) $movie->poster = asset($movie->poster);
+        return json_encode($movies);
+    }
 
     public function allMovies($page = 1) {
 
@@ -106,8 +112,10 @@ class MoviesController extends Controller {
         if (count($movies) == 0) {
             return $request->input('json_response') ? json_encode([]) : redirect(route('all_movies'));
         }
+
         if ($request->input('raw_routes') != null && $request->input('raw_routes'))
             addRoutes($movies);
+        foreach ($movies as $movie) $movie->poster = asset($movie->poster);
         if ($request->input('json_response')) return json_encode($movies);
         return $this->movies_view($movies, null,
             'Looking for "' . $request->input('title') . '"', $page, 'search_movies',

@@ -20,6 +20,7 @@ Route::get('/genre/{genre}/{page}', 'MoviesController@findByGenre')->name('genre
 Route::get('/movie/{id}', 'MoviesController@findById')->name('movie');
 Route::any('movies/search', 'MoviesController@searchMovies')->name('search_movies');
 
+Route::any('movies/get_all', 'MoviesController@getAllMovies')->name('get_movies');
 Auth::routes();
 
 Route::post('/movies/rate/{id}', 'MoviesController@rate_movie')->name('rate_movie');

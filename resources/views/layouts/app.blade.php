@@ -19,7 +19,7 @@ for ($i = 0, $k = 0; $i < $columns; $i++){
         <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @hasSection('title')
         @yield('title')
     @else
@@ -39,17 +39,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             // window.scrollTo(0, 1);
         } </script>
     <!-- //for-mobile-apps -->
-        <link href="{{asset('vendor/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet">
 
-        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all"/>
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all"/>
     <link rel="stylesheet" href="{{ asset('css/contactstyle.css') }}" type="text/css" media="all"/>
     <link rel="stylesheet" href="{{ asset('css/faqstyle.css') }}" type="text/css" media="all"/>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" media="all"/>
-        <link rel="stylesheet" href="{{ asset('css/search.css') }}" type="text/css" media="all"/>
-        <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.theme.css')}}">
-        <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.structure.css')}}">
-        <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}" type="text/css" media="all"/>
+    <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.theme.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.structure.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/jquery-ui-1.12.1/jquery-ui.min.css')}}">
     <link href="{{ asset('css/single.css') }}" rel='stylesheet' type='text/css'/>
     <link href="{{ asset('css/medile.css') }}" rel='stylesheet' type='text/css'/>
     <!-- banner-slider -->
@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //font-awesome icons -->
     <!-- js -->
     <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('vendor/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>
     <!-- //js -->
     <!-- banner-bottom-plugin -->
     <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all">

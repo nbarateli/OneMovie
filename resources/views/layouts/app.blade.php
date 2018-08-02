@@ -424,6 +424,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 @hasSection('scripts')
     <script src="{{asset('/vendor/socket.io.js')}}"></script>
+    <script src="{{asset('/vendor/lodash.js')}}"></script>
     <script src="{{asset('js/search.js')}}"></script>
     @yield('scripts')
 @endif

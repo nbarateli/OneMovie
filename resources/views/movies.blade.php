@@ -12,11 +12,9 @@
     <title>{{($term ? $term : $genre) . " - page $page"}}</title>
 @endsection
 @section('scripts')
-    <script src="{{asset('vendor/mustache/mustache.min.js')}}"></script>
     <script src="{{asset('js/ratings.js')}}"></script>
 @endsection
 @section('content')
-    <input type="hidden" id='search_route' value="{{route('search_movies')}}">
     <div class="general-agileits-w3l">
         <div class="w3l-medile-movies-grids">
             <!-- /movie-browse-agile -->

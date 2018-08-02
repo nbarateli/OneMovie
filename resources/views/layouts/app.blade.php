@@ -301,6 +301,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </ul>
     </nav>
 </div>
+<input type="hidden" id='search_route' value="{{route('search_movies')}}">
 <!-- general -->
 @yield('content')
 <!-- //general -->
@@ -395,14 +396,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script src="{{asset('js/auth.js')}}"></script>
 <script type="x-template/mustache" id='search-item'>
-    <li class="movie-entry">
-        {{--<img src="{{image}}">--}}
-        {{--<a href="{{url}}">{{title}}</a>--}}
-    </li>
+    <img src="@{{poster}}">
+    <a target="_blank" href="@{{url}}">@{{title}}</a>
 </script>
 <!-- //here ends scrolling icon -->
 </body>
 @hasSection('scripts')
+    <script src="{{asset('vendor/mustache/mustache.min.js')}}"></script>
     <script src="{{asset('/vendor/socket.io.js')}}"></script>
     <script src="{{asset('js/bootstrap.js',true)}}"></script>
     <script src="{{asset('/vendor/lodash.js')}}"></script>

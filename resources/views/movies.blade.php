@@ -14,8 +14,6 @@
 @section('scripts')
     <script src="{{asset('vendor/mustache/mustache.min.js')}}"></script>
     <script src="{{asset('js/ratings.js')}}"></script>
-    <script src="{{asset('js/search.js')}}"></script>
-
 @endsection
 @section('content')
     <input type="hidden" id='search_route' value="{{route('search_movies')}}">
